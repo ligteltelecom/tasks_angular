@@ -1,0 +1,26 @@
+@if (!mostrarForm) {
+    <app-botao texto="Nova Tarefa" cor="green" (acao)="alterarVisibilidade()"></app-botao>
+}
+@else {
+    <app-botao texto="Fechar" cor="red" (acao)="alterarVisibilidade()"></app-botao>
+}
+
+<form (ngSubmit)="onSubmit()" *ngIf="mostrarForm">
+    <div>
+        <label for="tarefa">Tarefa</label>
+        <input type="text" class="form-control" name="tarefa" id="tarefa" placeholder="Adicione uma tarefa" [(ngModel)]="tarefa.tarefa">
+    </div>
+    <div class="mb-4">
+        <label for="categoria">Categoria</label>
+        <select class="form-select" name="categoria" id="categoria" [(ngModel)]="tarefa.categoria">
+            <option value="" selected>Selecione uma categoria</option>
+            <option value="academia">Academia</option>
+            <option value="casa">Casa</option>
+            <option value="faculdade">Faculdade</option>
+            <option value="lazer">Lazer</option>
+            <option value="trabalho">Trabalho</option>
+        </select>
+        
+    </div>
+    <input type="submit" class="btn btn-block mb-4" value="Adicionar Tarefa">
+</form>

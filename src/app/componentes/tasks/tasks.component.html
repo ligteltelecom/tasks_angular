@@ -1,0 +1,7 @@
+<app-add-task (newTask)="addTask($event)"></app-add-task>
+<div class="tasks">
+    <app-task-item *ngFor="let task of (tasks$ | async)" [tarefa]="task" 
+    (onDeleteTask)="deleteTask($event)"
+    (onToggleConcluido)="updateTask($event)"
+    ></app-task-item>
+</div>
